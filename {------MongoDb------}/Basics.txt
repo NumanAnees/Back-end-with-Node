@@ -1,0 +1,31 @@
+1) show dbs
+=> Showing databases
+2) use Numan
+=> create db Numan or use Numan if it already present
+3) db
+=> current database
+4) db.collections/show collections
+=> show total table(sql)/collection(noSql)
+--------------------------------------------------------------------------
+5) db.collection.insertOne({Name : "Numan Anees",age : 19,active : true})
+=>it will insert 1 doccument
+6) db.collection.insertMany({},{},{})
+=>inserting more than 1 doccument
+---------------------------------------------------------------------------
+7) db.{collectionName}.find().pretty()
+=> for displaying doccuments
+8)  db.collection.find({Name:"Numan Anees"},{_id:0,Name:1}).pretty()
+=>show only where numan anees is name
+9) db.collection.find({active:false}).pretty().limit(1).skip(1)
+=> we can set limit and can also skip the doccuments
+--------------------------------------------------------------------------
+10) db.collection.updateOne({Name:"Numan Anees"},{$set:{active:"unknown"}})
+=> update the record 
+11)  db.collection.updateMany({age: 19},{$set:{active:"unknown"}})
+=> for updating many at the same time
+--------------------------------------------------------------------------
+12) db.collection.deleteMany({Name:"Numan Anees"})
+=> delete the record where name is numan
+13) db.collection.deleteMany({})
+=>Delete all records
+--------------------------------------------------------------------------
