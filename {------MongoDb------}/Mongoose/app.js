@@ -66,4 +66,21 @@ const createDocument = async () => {
     console.log(err);
   }
 };
-createDocument();
+//createDocument();
+
+//----Read pre existing document
+const getDocument = async () => {
+  try {
+    const result = await Playlist.find({ active: true })
+      .select({
+        name: 1,
+        _id: 0,
+      })
+      .skip(1)
+      .limit(3);
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
+};
+getDocument();
