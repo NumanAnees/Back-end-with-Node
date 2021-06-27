@@ -95,4 +95,16 @@ const OptDocument = async () => {
     console.log(err);
   }
 };
-OptDocument();
+//OptDocument();(uncomment it)
+//--------------------------------------------------Logical operators-----------------------------------------
+const LogDocument = async () => {
+  try {
+    const result = await Playlist.find({
+      $nor: [{ author: "Numan" }],
+    });
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
+};
+LogDocument();
