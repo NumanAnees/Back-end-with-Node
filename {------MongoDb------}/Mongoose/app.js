@@ -107,4 +107,16 @@ const LogDocument = async () => {
     console.log(err);
   }
 };
-LogDocument();
+// LogDocument();(uncomment it)
+//----------------------------------------------Count and Sort-------------------------------------------------
+const CsDocument = async () => {
+  try {
+    const result = await Playlist.find({}, { name: 1 })
+      //.countDocuments();
+      .sort({ name: 1 });
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
+};
+CsDocument();
