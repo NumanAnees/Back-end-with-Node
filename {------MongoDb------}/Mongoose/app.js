@@ -134,4 +134,16 @@ const UpdateDocumment = async (_id) => {
     console.log(err);
   }
 };
-UpdateDocumment("60d84fdfe9f6ab34f434f736");
+//UpdateDocumment("60d84fdfe9f6ab34f434f736");(uncomment it)
+//---------------------------------------------Delete Query------------------------------------------------
+const DelDocument = async (_id) => {
+  try {
+    //we can also use DeleteOne and many
+    const doc = await Playlist.findByIdAndDelete({ _id });
+    console.log(doc);
+  } catch (err) {
+    console.log(err);
+  }
+};
+DelDocument("60d84fdfe9f6ab34f434f736");
+//validation can be possible by validator Npm and also in scehema (pre,userdefined)+unique is not a validator
