@@ -119,4 +119,19 @@ const CsDocument = async () => {
     console.log(err);
   }
 };
-CsDocument();
+// CsDocument(); (uncomment it)
+//-----------------------------------------------Update the documment data -----------------------------------------
+const UpdateDocumment = async (_id) => {
+  try {
+    //we can also use updatetOne // UpdateMany but it will only print status
+    const updateMethod = await Playlist.findByIdAndUpdate(
+      { _id },
+      { $set: { name: "JavaScript" } },
+      { useFindAndModify: false, new: true } //new false will output the previous value
+    );
+    console.log(updateMethod);
+  } catch (err) {
+    console.log(err);
+  }
+};
+UpdateDocumment("60d84fdfe9f6ab34f434f736");
