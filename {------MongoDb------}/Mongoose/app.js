@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-//connection and creating a new db
+//--------------------------------------------connection and creating a new db-------------------------------------
 mongoose
   .connect("mongodb://localhost:27017/NomiDb", {
     useNewUrlParser: true,
@@ -11,7 +11,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-//Mongoose Schema
+//---------------------------------------------Mongoose Schema-----------------------------------------------------
 const playlistSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -27,9 +27,9 @@ const playlistSchema = new mongoose.Schema({
   },
 });
 //mOngoose model
-//collection creation
+//------------------------------------collection creation----------------------------------------------------------
 const Playlist = new mongoose.model("Playlist", playlistSchema);
-//create/insert documents
+//------------------------------------create/insert documents------------------------------------------------------
 const createDocument = async () => {
   try {
     const Mongo = new Playlist({
@@ -66,9 +66,9 @@ const createDocument = async () => {
     console.log(err);
   }
 };
-//createDocument();
+//createDocument(); (uncomment it)
 
-//----Read pre existing document
+//----------------------------------find/Read pre existing document----------------------------------------------
 const getDocument = async () => {
   try {
     const result = await Playlist.find({ active: true })
@@ -83,4 +83,16 @@ const getDocument = async () => {
     console.log(err);
   }
 };
-getDocument();
+// getDocument();(uncomment it)
+//---------------------------------------Query operators----------------------------------------------------------
+const OptDocument = async () => {
+  try {
+    const result = await Playlist.find({
+      ctype: { $in: ["Front end", "Full Stack"] },
+    });
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
+};
+OptDocument();
